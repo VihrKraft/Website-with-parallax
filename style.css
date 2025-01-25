@@ -18,7 +18,7 @@ html {
     min-height: 100vh;
 }
 ._container {
-    margin: 0 auto 0 auto;
+    margin: 0 auto;
 }
 .parallax__body {
     position: fixed;
