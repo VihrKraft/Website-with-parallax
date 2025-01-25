@@ -32,12 +32,12 @@ html {
     position: relative;
 
 }
-.parallax {
+.parallax__title {
     text-transform: uppercase;
     color: #c6bebe;
 
 }
-.parallax::after {
+.parallax__title::after {
     content:“(Parallax)”;
     color: #424242;
     opacity: 0.2;
