@@ -38,7 +38,7 @@ html {
 
 }
 .parallax__title::after {
-    content:“(Parallax)”;
+    content: '(Parallax)';
     color: #424242;
     opacity: 0.2;
 
