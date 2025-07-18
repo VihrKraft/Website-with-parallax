@@ -174,3 +174,8 @@ html {
         margin-bottom: 1.875rem;
     }
 }
+@media (max-aspect-ratio: 3/2) {
+    .images__human {
+        background-position: 20% top;
+    }
+}
