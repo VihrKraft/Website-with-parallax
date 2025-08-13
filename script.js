@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         setParalaxAnimation()
 
-
         parallax.addEventListener('mousemove', function(event) {
             let parallaxWidth = parallax.offsetWidth 
             let parallaxHeight = parallax.offsetHeight 
@@ -43,5 +42,37 @@ document.addEventListener("DOMContentLoaded", function() {
             coordXpercent = coordX/parallaxWidth*100
             coordYpercent = coordY/parallaxHeight*100
         })
+
+        let thresholdSets = []
+        for (let num=0; num<=1; num+=0.005) {
+            thresholdSets.push(num)
+        }
+
+
+        function setParallaxStyle(scrollTopPercent) {
+            let humanContent = human.parentElement
+            let mountainsContent = mountains.parentElement
+
+            humanContent.style.cssText = `transform: translate(0%, -${scrollTopPercent/3}%)`
+            mountainsContent.style.cssText = `transform: translate(0%, -${scrollTopPercent/6}%)`
+            parallaxContent.style.cssText = `transform: translate(0%, -${scrollTopPercent/9}%)`
+        }
+
+
+        const callback = function (entries, observer) {
+            const currentPageScrollingY = window.pageYOffset
+            const parallaxHeight = parallax.offsetHeight 
+
+            const scrollTopPercent = currentPageScrollingY/parallaxHeight*100
+
+            setParallaxStyle(scrollTopPercent)
+        }
+
+        const observer = new IntersectionObserver(callback,{
+            threshold: thresholdSets 
+        });
+
+        let content = document.querySelector(".content")
+        observer.observe(content)
     }
 })
